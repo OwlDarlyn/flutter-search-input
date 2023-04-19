@@ -1,23 +1,21 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import '../widgets/item_card_form.dart';
 import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
-import '../models/elixirs_model.dart';
-import '../provider/elixirs_provider.dart';
+import '../models/wizard_model.dart';
+import '../provider/wizards_provider.dart';
+import '../widgets/item_card_form.dart';
 
-class ElixirsListViewForm extends StatefulWidget {
+class WizardsListViewForm extends StatefulWidget {
   final List<dynamic> list;
 
-  const ElixirsListViewForm({super.key, required this.list});
+  const WizardsListViewForm({super.key, required this.list});
 
   @override
-  State<ElixirsListViewForm> createState() => _ElixirsListViewFormState();
+  State<WizardsListViewForm> createState() => _WizardsListViewFormState();
 }
 
-class _ElixirsListViewFormState extends State<ElixirsListViewForm>
+class _WizardsListViewFormState extends State<WizardsListViewForm>
     with TickerProviderStateMixin {
   @override
   void initState() {
@@ -26,7 +24,7 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
 
   @override
   Widget build(BuildContext context) {
-    final List<Elixir> elixirs = context.watch<ElixirsProvider>().elixirs;
+    final List<Wizard> wizards = context.watch<WizardsProvider>().wizards;
 
     return Container(
       margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
@@ -36,7 +34,7 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
         color: AppColors.helpColor1.withOpacity(0.4),
       ),
       child: ListView.builder(
-          itemCount: elixirs.length,
+          itemCount: wizards.length,
           scrollDirection: Axis.vertical,
           itemBuilder: (BuildContext context, int index) {
             return Column(
@@ -44,9 +42,9 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemCardForm(
-                    leading: elixirs[index].name,
-                    title: elixirs[index].effect,
-                    subtitle: elixirs[index].difficulty),
+                    leading: wizards[index].firstName + wizards[index].lastName,
+                    title: '',
+                    subtitle: ''),
               ],
             );
           }),

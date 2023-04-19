@@ -1,23 +1,22 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import '../widgets/item_card_form.dart';
 import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
-import '../models/elixirs_model.dart';
-import '../provider/elixirs_provider.dart';
 
-class ElixirsListViewForm extends StatefulWidget {
+import '../models/spell_model.dart';
+import '../provider/spells_provider.dart';
+import '../widgets/item_card_form.dart';
+
+class SpellsListViewForm extends StatefulWidget {
   final List<dynamic> list;
 
-  const ElixirsListViewForm({super.key, required this.list});
+  const SpellsListViewForm({super.key, required this.list});
 
   @override
-  State<ElixirsListViewForm> createState() => _ElixirsListViewFormState();
+  State<SpellsListViewForm> createState() => _SpellsListViewFormState();
 }
 
-class _ElixirsListViewFormState extends State<ElixirsListViewForm>
+class _SpellsListViewFormState extends State<SpellsListViewForm>
     with TickerProviderStateMixin {
   @override
   void initState() {
@@ -26,7 +25,7 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
 
   @override
   Widget build(BuildContext context) {
-    final List<Elixir> elixirs = context.watch<ElixirsProvider>().elixirs;
+    final List<Spell> spells = context.watch<SpellsProvider>().spells;
 
     return Container(
       margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
@@ -36,7 +35,7 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
         color: AppColors.helpColor1.withOpacity(0.4),
       ),
       child: ListView.builder(
-          itemCount: elixirs.length,
+          itemCount: spells.length,
           scrollDirection: Axis.vertical,
           itemBuilder: (BuildContext context, int index) {
             return Column(
@@ -44,9 +43,10 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemCardForm(
-                    leading: elixirs[index].name,
-                    title: elixirs[index].effect,
-                    subtitle: elixirs[index].difficulty),
+                  leading: spells[index].name,
+                  title: spells[index].effect,
+                  subtitle: spells[index].creator,
+                ),
               ],
             );
           }),

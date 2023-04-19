@@ -9,7 +9,7 @@ List<Elixir> parseElixir(String responseBody) {
   return parsed.map<Elixir>((json) => Elixir.fromJson(json)).toList();
 }
 
-Future<List<Elixir>> fetchElixir() async {
+Future<List<Elixir>> fetchElixirs() async {
   final response = await http
       .get(Uri.parse('https://wizard-world-api.herokuapp.com/Elixirs'));
   if (response.statusCode == 200) {

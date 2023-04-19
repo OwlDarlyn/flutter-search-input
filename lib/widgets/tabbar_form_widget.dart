@@ -28,9 +28,9 @@ class _TabBarFormState extends State<TabBarForm> with TickerProviderStateMixin {
                 CircleTabIdicator(color: AppColors.helpColor2, radius: 4),
             indicatorSize: TabBarIndicatorSize.tab,
             controller: widget.tabController,
-            tabs: [
+            tabs: const [
               Tab(text: 'Elixirs'),
-              Tab(text: 'Ingredients'),
+              Tab(text: 'Wizards'),
               Tab(text: 'Spells'),
             ],
           ),

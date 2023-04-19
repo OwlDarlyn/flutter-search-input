@@ -1,14 +1,14 @@
-class Spells {
+class Spell {
   final String id;
   final String name;
   final String incantation;
   final String effect;
-  final String canBeVerbal;
+  final bool canBeVerbal;
   final String type;
   final String light;
   final String creator;
 
-  Spells({
+  Spell({
     required this.id,
     required this.name,
     required this.incantation,
@@ -18,16 +18,16 @@ class Spells {
     required this.light,
     required this.creator,
   });
-  factory Spells.fromJson(Map<String, dynamic> json) {
-    return Spells(
+  factory Spell.fromJson(Map<String, dynamic> json) {
+    return Spell(
       id: json['id'],
       name: json['name'],
-      incantation: json['incantation'],
+      incantation: json['incantation'] ?? '',
       effect: json['effect'],
-      canBeVerbal: json['canBeVerbal'],
+      canBeVerbal: json['canBeVerbal'] ?? false,
       type: json['type'],
       light: json['light'],
-      creator: json['creator'],
+      creator: json['creator'] ?? '',
     );
   }
 }

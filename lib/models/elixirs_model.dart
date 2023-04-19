@@ -1,12 +1,10 @@
-import 'package:popsy_test_assignment/models/ingredient_model.dart';
-
 class Elixir {
   final String id;
   final String name;
   final String effect;
   final String sideEffects;
   final String difficulty;
-  final List<dynamic> ingredients;
+  final List ingredients;
   final List inventors;
   final String manufacturer;
 
