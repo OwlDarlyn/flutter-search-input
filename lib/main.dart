@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
 import '../provider/elixirs_provider.dart';
-import '../provider/spells_provider.dart';
-import '../provider/wizards_provider.dart';
 import '../screens/home_screen.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => ElixirsProvider()),
-    ChangeNotifierProvider(create: (_) => WizardsProvider()),
-    ChangeNotifierProvider(create: (_) => SpellsProvider()),
   ], child: const MyApp()));
 }
 

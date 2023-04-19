@@ -27,7 +27,7 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
   @override
   Widget build(BuildContext context) {
     final List<Elixir> elixirs = context.watch<ElixirsProvider>().elixirs;
-
+    final String search = context.watch<ElixirsProvider>().searchElixirString;
     return Container(
       margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
       padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
@@ -39,16 +39,22 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
           itemCount: elixirs.length,
           scrollDirection: Axis.vertical,
           itemBuilder: (BuildContext context, int index) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ItemCardForm(
-                    leading: elixirs[index].name,
-                    title: elixirs[index].effect,
-                    subtitle: elixirs[index].difficulty),
-              ],
-            );
+            if (elixirs[index]
+                .name
+                .toLowerCase()
+                .contains(search.toLowerCase())) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ItemCardForm(
+                    elixir: elixirs[index],
+                  ),
+                ],
+              );
+            } else {
+              return Container();
+            }
           }),
     );
   }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:popsy_test_assignment/models/app_colors.dart';
+import 'package:popsy_test_assignment/provider/elixirs_provider.dart';
+import 'package:provider/provider.dart';
 
 class SearchForm extends StatelessWidget {
   SearchForm({super.key});
-
-  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,10 @@ class SearchForm extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: TextFormField(
-        controller: searchController,
-        onChanged: (_) {},
+        onChanged: (value) =>
+            context.read<ElixirsProvider>().searchElixir(value),
         textInputAction: TextInputAction.done,
+        style: const TextStyle(color: AppColors.defaultColor, fontSize: 16),
         maxLines: 1,
         decoration: const InputDecoration(
           icon: Icon(
