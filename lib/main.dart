@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+
+import '../provider/elixirs_provider.dart';
+
 import '../screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ElixirsProvider())],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           colorScheme:
               ColorScheme.fromSwatch().copyWith(primary: Colors.black87)),

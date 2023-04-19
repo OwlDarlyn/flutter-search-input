@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/app_colors.dart';
 
 class TabBarForm extends StatefulWidget {
-  const TabBarForm({super.key});
+  final TabController tabController;
+  const TabBarForm({super.key, required this.tabController});
 
   @override
   State<TabBarForm> createState() => _TabBarFormState();
@@ -12,8 +13,6 @@ class TabBarForm extends StatefulWidget {
 class _TabBarFormState extends State<TabBarForm> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    final TabController _tabController = TabController(length: 3, vsync: this);
-
     return Container(
       margin: const EdgeInsets.only(top: 20),
       alignment: Alignment.center,
@@ -28,8 +27,8 @@ class _TabBarFormState extends State<TabBarForm> with TickerProviderStateMixin {
             indicator:
                 CircleTabIdicator(color: AppColors.helpColor2, radius: 4),
             indicatorSize: TabBarIndicatorSize.tab,
-            controller: _tabController,
-            tabs: const [
+            controller: widget.tabController,
+            tabs: [
               Tab(text: 'Elixirs'),
               Tab(text: 'Ingredients'),
               Tab(text: 'Spells'),

@@ -1,13 +1,13 @@
-class Ingredients {
+class Ingredient {
   final String id;
   final String name;
 
-  Ingredients({
+  Ingredient({
     required this.id,
     required this.name,
   });
-  factory Ingredients.fromJson(Map<String, dynamic> json) {
-    return Ingredients(
+  factory Ingredient.fromJson(Map<String, dynamic> json) {
+    return Ingredient(
       id: json['id'],
       name: json['name'],
     );

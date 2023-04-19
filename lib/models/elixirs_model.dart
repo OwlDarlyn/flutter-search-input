@@ -1,14 +1,16 @@
-class Elixirs {
+import 'package:popsy_test_assignment/models/ingredient_model.dart';
+
+class Elixir {
   final String id;
   final String name;
   final String effect;
   final String sideEffects;
   final String difficulty;
-  final String ingredients;
-  final String inventors;
+  final List<dynamic> ingredients;
+  final List inventors;
   final String manufacturer;
 
-  Elixirs({
+  Elixir({
     required this.id,
     required this.name,
     required this.effect,
@@ -18,16 +20,16 @@ class Elixirs {
     required this.inventors,
     required this.manufacturer,
   });
-  factory Elixirs.fromJson(Map<String, dynamic> json) {
-    return Elixirs(
+  factory Elixir.fromJson(Map<String, dynamic> json) {
+    return Elixir(
       id: json['id'],
-      name: json['name'],
-      effect: json['effect'],
-      sideEffects: json['sideEffects'],
+      name: json['name'] ?? "",
+      effect: json['effect'] ?? "",
+      sideEffects: json['sideEffects'] ?? "",
       difficulty: json['difficulty'],
-      ingredients: json['ingredients']['id'],
+      ingredients: json['ingredients'],
       inventors: json['inventors'],
-      manufacturer: json['manufacturer']['id'],
+      manufacturer: json['manufacturer'] ?? '',
     );
   }
 }
