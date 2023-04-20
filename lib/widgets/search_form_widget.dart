@@ -4,7 +4,7 @@ import 'package:popsy_test_assignment/provider/elixirs_provider.dart';
 import 'package:provider/provider.dart';
 
 class SearchForm extends StatelessWidget {
-  SearchForm({super.key});
+  const SearchForm({super.key});
 
   @override
   Widget build(BuildContext context) {

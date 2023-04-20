@@ -4,10 +4,10 @@ import 'package:popsy_test_assignment/screens/elixir_item_screen.dart';
 import '../models/app_colors.dart';
 import '../models/elixirs_model.dart';
 
-class ItemCardForm extends StatelessWidget {
+class ListItemCard extends StatelessWidget {
   final Elixir elixir;
 
-  const ItemCardForm({super.key, required this.elixir});
+  const ListItemCard({super.key, required this.elixir});
 
   @override
   Widget build(BuildContext context) {

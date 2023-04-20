@@ -1,7 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import '../widgets/item_card_form.dart';
+import '../components/list_item_card.dart';
 import 'package:provider/provider.dart';
 
 import '../models/app_colors.dart';
@@ -42,12 +40,13 @@ class _ElixirsListViewFormState extends State<ElixirsListViewForm>
             if (elixirs[index]
                 .name
                 .toLowerCase()
-                .contains(search.toLowerCase())) {
+                .trim()
+                .contains(search.trim().toLowerCase())) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ItemCardForm(
+                  ListItemCard(
                     elixir: elixirs[index],
                   ),
                 ],
