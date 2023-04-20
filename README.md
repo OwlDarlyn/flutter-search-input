@@ -1,16 +1,12 @@
 # popsy_test_assignment
 
-A new Flutter project.
+Popsy test assignment
 
-## Getting Started
+## API used
 
-This project is a starting point for a Flutter application.
+[Harry Potter wizard world API](https://wizard-world-api.herokuapp.com/swagger/index.html)
 
-A few resources to get you started if this is your first Flutter project:
+## Packages used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* provider: ^6.0.5
+* http: ^0.13.5
