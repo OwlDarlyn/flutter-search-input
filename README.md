@@ -14,8 +14,8 @@ Wizard potions list.
 
 ## App's screens
 
-[!](01.png)
-[!](02.png)
-[!](03.png)
-[!](04.png)
-[!](05.png)
+![](01.png)
+![](02.png)
+![](03.png)
+![](04.png)
+![](05.png)
