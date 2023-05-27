@@ -1,6 +1,7 @@
-# popsy_test_assignment
+# Search Input
 
-Popsy test assignment
+A basic application consisting of two screens - a list view and a detail view. 
+Wizard potions list.
 
 ## API used
 
@@ -10,3 +11,11 @@ Popsy test assignment
 
 * provider: ^6.0.5
 * http: ^0.13.5
+
+## App's screens
+
+[!](01.png)
+[!](02.png)
+[!](03.png)
+[!](04.png)
+[!](05.png)
